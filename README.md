@@ -122,7 +122,10 @@ ZIP 에셋은 이 저장소와 GitHub Releases 페이지에서 받을 수 있습
 
 ---
 
+
 <div align="center">
-Runable.app made it available. 러너블앱이 만들었습니다.<br/>
-<a href="https://runable.app">2026 Runable.app</a>
+  <img src="https://github.com/user-attachments/assets/7cc9387f-1479-428e-9a15-057fd9a0f645" width="200" alt="runable-dad-frame-small">
+  <br/><br/>
+  Runable.app made it available. 러너블앱이 만들었습니다.<br/>
+  <a href="https://runable.app">2026 Runable.app</a>
 </div>
