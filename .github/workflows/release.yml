@@ -39,12 +39,16 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
-          release_id="$(gh api "repos/${{ github.repository }}/releases/tags/${{ github.ref_name }}" --jq '.id')"
-          gh api "repos/${{ github.repository }}/releases/${release_id}/assets" --paginate --jq '.[].id' | while IFS= read -r asset_id; do
-            if [ -n "$asset_id" ]; then
-              gh api -X DELETE "repos/${{ github.repository }}/releases/assets/${asset_id}"
-            fi
-          done
+          # First run for a tag may not have a release yet; skip cleanup in that case.
+          if release_id="$(gh api "repos/${{ github.repository }}/releases/tags/${{ github.ref_name }}" --jq '.id' 2>/dev/null)"; then
+            gh api "repos/${{ github.repository }}/releases/${release_id}/assets" --paginate --jq '.[].id' | while IFS= read -r asset_id; do
+              if [ -n "$asset_id" ]; then
+                gh api -X DELETE "repos/${{ github.repository }}/releases/assets/${asset_id}"
+              fi
+            done
+          else
+            echo "No existing release found for tag ${{ github.ref_name }}; skipping asset cleanup."
+          fi
 
       - name: Create GitHub Release
         id: create_release
