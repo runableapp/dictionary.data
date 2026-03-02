@@ -1,0 +1,55 @@
+name: Upload Zip to Release
+
+on:
+  push:
+    tags:
+      - "v*" # Triggers only when you push a tag starting with 'v'
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Pull LFS objects
+        run: git lfs pull
+
+      - name: Collect release assets
+        id: collect_assets
+        run: |
+          {
+            echo "files<<EOF"
+            echo "dictionary_fts5.zip"
+            while IFS= read -r file; do
+              echo "$file"
+            done < <(git ls-files 'dicts/*.zip')
+            while IFS= read -r file; do
+              echo "$file"
+            done < <(git ls-files '*.json')
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Remove existing assets for this tag
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          release_id="$(gh api "repos/${{ github.repository }}/releases/tags/${{ github.ref_name }}" --jq '.id')"
+          gh api "repos/${{ github.repository }}/releases/${release_id}/assets" --paginate --jq '.[].id' | while IFS= read -r asset_id; do
+            if [ -n "$asset_id" ]; then
+              gh api -X DELETE "repos/${{ github.repository }}/releases/assets/${asset_id}"
+            fi
+          done
+
+      - name: Create GitHub Release
+        id: create_release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: ${{ steps.collect_assets.outputs.files }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
