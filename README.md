@@ -31,6 +31,11 @@ ZIP assets are available in this repository and on the GitHub Releases page:
 | `dicts/lingoes-naver-korean-chinese.zip` | Naver Korean-Chinese dictionary via Lingoes | 🇰🇷 Korean -> 🇨🇳 Chinese |
 | `dicts/lingoes-naver-korean-english.zip` | Naver Korean-English dictionary via Lingoes | 🇰🇷 Korean -> English 🇺🇸 |
 | `dicts/lingoes-naver-korean-japanese.zip` | Naver Korean-Japanese dictionary via Lingoes | 🇰🇷 Korean -> Japanese 🇯🇵 |
+| `dicts/mdict-ace-enko-mdx.zip` | New Ace English-Korean-Korean-English (MDict MDX) | 🇺🇸 English -> Korean 🇰🇷 |
+| `dicts/mdict-ace-korean-mdx.zip` | New Ace Korean language dictionary (MDict MDX) | 🇰🇷 Korean -> Korean 🇰🇷 |
+| `dicts/mdict-ko-cn.zip` | Korean-Chinese MDict bundle (mdx + mdd) | 🇰🇷 Korean -> 🇨🇳 Chinese |
+| `dicts/mdict-ko-pronounce-mdx.zip` | Korean pronunciation dictionary (MDict MDX) | 🇰🇷 Korean -> Korean 🇰🇷 (pronunciation) |
+| `dicts/nikl-basic.zip` | NIKL 한국어기초사전 (Basic Korean Dictionary); one DB with Korean definitions plus all available target-language glosses (`dictionary_group_id` `ko-mul`) | 🇰🇷 Korean -> multiple languages |
 | `dicts/stardict-hanja-koreanhanzi.zip` | Stardict Hanja (漢字)-Korean dictionary | 🇨🇳 Hanja (漢字) <-> 🇰🇷 Korean |
 | `dicts/stardict-koreananimalmedical.zip` | Stardict Korean animal/medical terminology dictionary | 🇰🇷 Korean -> Korean 🇰🇷 (specialized) |
 | `dicts/stardict-koreandic.zip` | Stardict general Korean dictionary | 🇰🇷 Korean -> Korean 🇰🇷 |
@@ -50,6 +55,8 @@ ZIP assets are available in this repository and on the GitHub Releases page:
 - Kaikki: https://kaikki.org/dictionary/
 - Wiktionary: https://github.com/open-dsl-dict/wiktionary-dict
 - KRDict (National Institute of Korean Language): https://krdict.korean.go.kr/eng
+- NIKL 한국어기초사전 (Basic Korean Dictionary, LMF JSON): https://krdict.korean.go.kr/eng (국립국어원; converted via `dictionary-tools/conversion-go` as a single multilingual `ko-mul` dataset, work dir `work-convert-nikl-basic`; desktop/CLI merge `ko-mul` into any `ko-*` lookup)
+- MDict (New Ace Korean / English-Korean, Korean-Chinese, Korean pronunciation): `.mdx`/`.mdd` sources converted in `dictionary-tools/conversion-go` (`work-convert-mdict-*`)
 - Yomichan Korean dictionaries: https://github.com/Lyroxide/yomichan-ko-dic
 - CC Korean-English Dictionary: https://github.com/mhagiwara/cc-kedict
 - KEngDic: https://github.com/garfieldnate/kengdic
@@ -93,6 +100,11 @@ ZIP 에셋은 이 저장소와 GitHub Releases 페이지에서 받을 수 있습
 | `dicts/lingoes-naver-korean-chinese.zip` | Lingoes 기반 Naver 한국어-중국어 사전 | 🇰🇷 한국어 -> 🇨🇳 중국어 |
 | `dicts/lingoes-naver-korean-english.zip` | Lingoes 기반 Naver 한영 사전 | 🇰🇷 한국어 -> 영어 🇺🇸 |
 | `dicts/lingoes-naver-korean-japanese.zip` | Lingoes 기반 Naver 한일 사전 | 🇰🇷 한국어 -> 일본어 🇯🇵 |
+| `dicts/mdict-ace-enko-mdx.zip` | New Ace 영한·한영 사전 (MDict MDX) | 🇺🇸 영어 -> 한국어 🇰🇷 |
+| `dicts/mdict-ace-korean-mdx.zip` | New Ace 한국어 사전 (MDict MDX) | 🇰🇷 한국어 -> 한국어 🇰🇷 |
+| `dicts/mdict-ko-cn.zip` | 한중 MDict 번들 (mdx + mdd) | 🇰🇷 한국어 -> 🇨🇳 중국어 |
+| `dicts/mdict-ko-pronounce-mdx.zip` | 한국어 발음 사전 (MDict MDX) | 🇰🇷 한국어 -> 한국어 🇰🇷 (발음) |
+| `dicts/nikl-basic.zip` | 국립국어원 한국어기초사전 (한국어 정의 + 제공되는 모든 대역어; `ko-mul`) | 🇰🇷 한국어 -> 다국어 |
 | `dicts/stardict-hanja-koreanhanzi.zip` | Stardict 한자 (漢字)-한국어 사전 | 🇨🇳 한자 (漢字) <-> 🇰🇷 한국어 |
 | `dicts/stardict-koreananimalmedical.zip` | Stardict 한국어 동물/의학 용어 사전 | 🇰🇷 한국어 -> 한국어 🇰🇷 (전문) |
 | `dicts/stardict-koreandic.zip` | Stardict 일반 한국어 사전 | 🇰🇷 한국어 -> 한국어 🇰🇷 |
@@ -114,6 +126,8 @@ ZIP 에셋은 이 저장소와 GitHub Releases 페이지에서 받을 수 있습
 - Kaikki: https://kaikki.org/dictionary/
 - Wiktionary-dict: https://github.com/open-dsl-dict/wiktionary-dict
 - KRDict (국립국어원): https://krdict.korean.go.kr/eng
+- 한국어기초사전 (NIKL LMF JSON): https://krdict.korean.go.kr/eng — `dictionary-tools/conversion-go`의 `work-convert-nikl-basic`에서 변환
+- MDict (New Ace 한국어·영한·한중·발음 등): `.mdx`/`.mdd` 원본 — `dictionary-tools/conversion-go`의 `work-convert-mdict-*`에서 변환
 - Yomichan 한국어 사전: https://github.com/Lyroxide/yomichan-ko-dic
 - CC 한영 사전: https://github.com/mhagiwara/cc-kedict
 - KEngDic: https://github.com/garfieldnate/kengdic

@@ -170,6 +170,71 @@
       "entries_with_overlap": 0
     },
     {
+      "source_dict": "mdict-ace-enko-mdx",
+      "dictionary_type": "mdict",
+      "db_size_bytes": 3545890816,
+      "db_size_human": "3.3 GB",
+      "source_language": "en",
+      "target_language": "ko",
+      "direction": "English to Korean",
+      "word_count": 774623,
+      "rows_in": 801074,
+      "final_rows": 774623,
+      "entries_with_overlap": 17426
+    },
+    {
+      "source_dict": "mdict-ace-korean-mdx",
+      "dictionary_type": "mdict",
+      "db_size_bytes": 3611770880,
+      "db_size_human": "3.4 GB",
+      "source_language": "ko",
+      "target_language": "ko",
+      "direction": "Korean to Korean",
+      "word_count": 953247,
+      "rows_in": 1093456,
+      "final_rows": 953247,
+      "entries_with_overlap": 62722
+    },
+    {
+      "source_dict": "mdict-ko-cn",
+      "dictionary_type": "mdict",
+      "db_size_bytes": 803504128,
+      "db_size_human": "766.3 MB",
+      "source_language": "ko",
+      "target_language": "zh",
+      "direction": "Korean to Chinese",
+      "word_count": 138170,
+      "rows_in": 138170,
+      "final_rows": 138170,
+      "entries_with_overlap": 0
+    },
+    {
+      "source_dict": "mdict-ko-pronounce-mdx",
+      "dictionary_type": "mdict",
+      "db_size_bytes": 49942528,
+      "db_size_human": "47.6 MB",
+      "source_language": "ko",
+      "target_language": "ko",
+      "direction": "Korean to Korean",
+      "word_count": 22602,
+      "rows_in": 23173,
+      "final_rows": 22602,
+      "entries_with_overlap": 567
+    },
+    {
+      "source_dict": "nikl-basic",
+      "dictionary_type": "nikl",
+      "db_size_bytes": 510877696,
+      "db_size_human": "487.2 MB",
+      "source_language": "ko",
+      "target_language": "mul",
+      "direction": "Korean to Multiple languages",
+      "word_count": 49717,
+      "rows_in": 74319,
+      "final_rows": 49717,
+      "entries_with_overlap": 13721
+    },
+    {
       "source_dict": "stardict-hanja-koreanhanzi",
       "dictionary_type": "stardict",
       "db_size_bytes": 126279680,
@@ -313,6 +378,6 @@
       "entries_with_overlap": 11545
     }
   ],
-  "dictionary_count": 24,
-  "generated_at": "2026-03-02T01:55:50Z"
+  "dictionary_count": 29,
+  "generated_at": "2026-03-24T03:49:33Z"
 }
